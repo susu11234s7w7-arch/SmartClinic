@@ -1,0 +1,16 @@
+[project]
+name = "smart-clinic"
+version = "0.1.0"
+description = "Local Clinic Management System"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "SmartClinic" }]
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
