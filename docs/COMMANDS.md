@@ -1,58 +1,71 @@
 # SmartClinic Commands
 
-These commands describe the local development workflow. They do not claim that
-GitHub operations, commits, pushes, or screenshots have been completed.
+This document separates commands actually used in the project workflow from reference commands that were not claimed as executed.
 
-## Environment Setup
+## Environment and Linux Reference Commands
 
-```bash
-python -m venv .venv
-python -m pip install -U pip
-python -m pip install pytest
-```
+| Command | Purpose | Example or role |
+| --- | --- | --- |
+| `pwd` | Show the current directory | Standard Linux working-path check; not recorded as executed here |
+| `ls` | List files and directories | Standard Linux structure check; not recorded as executed here |
+| `cd` | Change directory | Used conceptually to work in `D:\SmartClinic`; the recorded terminal used PowerShell |
+| `mkdir` | Create a directory | Standard Linux reference; not recorded as executed here |
+| `python -m venv .venv` | Create a virtual environment | Documented setup command |
+| `python -m pip install pytest python-docx` | Install development/documentation tools | Used for the final documentation task |
 
-Activate `.venv` using the command appropriate for the current shell.
-
-## Test Commands
-
-Run the complete suite:
+## Tests and Application
 
 ```bash
 python -m pytest -q
-```
-
-The verified project result is `77 passed in 1.09s`, with zero failures and
-zero errors.
-
-## Run the Application
-
-```bash
 python -m smart_clinic.cli
 ```
 
-The CLI is an in-memory application. Records are lost when the process exits.
+The final verified test result was `77 passed in 0.30s`, with zero failures and zero errors. The CLI stores records in memory for the current process.
 
-## Local Git Workflow
+## Executed Git Workflow
 
-Use ordinary, non-destructive commands to inspect work:
+The following commands were used during the documented workflow:
 
 ```bash
 git status --short
-git diff -- README.md docs src tests
+git status
+git branch --show-current
+git remote -v
+git log --oneline --decorate --graph -5
+git add .gitignore README.md docs/
+git add pyproject.toml src/ tests/
+git diff --staged --stat
+git diff --staged --check
+git diff --staged
+git commit -m "feat: establish SmartClinic project baseline"
+git add -- screenshots/14_01_git_status_staged.png screenshots/14_03_git_diff_staged_stat_terminal.png screenshots/14_04_git_diff_staged_check_terminal.png screenshots/14_05_pytest_full_suite_terminal.png screenshots/14_06_git_diff_staged_terminal.png screenshots/14_06_initial_commit_terminal.png screenshots/14_07_git_log_initial_commit_terminal.png screenshots/14_08_git_status_clean_terminal.png screenshots/14_09_git_log_terminal.png screenshots/15_04_git_status_clean_terminal.png
+git commit -m "docs: add required lab screenshots"
+git log --oneline --decorate -2
+git ls-files -- screenshots
 ```
 
-Review changes before creating a commit. No commit, remote, push, or GitHub URL
-is claimed by this documentation.
+The baseline commit was `58ea81f` and the screenshot commit was `9924e98`. The working tree was verified clean and `main` synchronized with `origin/main` before the final documentation changes.
 
-## Linux and Windows Notes
+## GitHub Workflow
 
-The Python commands above work on Linux and Windows when Python is installed
-and available as `python`. Virtual-environment activation differs by shell;
-consult the shell's standard activation syntax rather than assuming one shell.
+The public repository is `https://github.com/susu11234s7w7-arch/SmartClinic`. Remote configuration was verified with `git remote -v`, and the public repository page was checked. The exact push terminal output is not reproduced because it was not captured in this workspace.
 
-## Evidence Commands
+Reference commands that were not claimed as executed in this record include:
 
-Use the test command output and reviewed source files as evidence for local
-verification. Screenshots must be captured separately from the running project
-and stored under `screenshots/`; this repository currently claims no screenshot
-evidence.
+```bash
+git init
+git restore --staged <path>
+git restore <path>
+git branch
+git switch <branch>
+git merge <branch>
+git remote add origin <url>
+git push origin main
+git pull origin main
+git --version
+git config <key> <value>
+```
+
+## Evidence
+
+The ten required terminal screenshots are committed under `screenshots/`. `SCREENSHOTS.docx` catalogs the actual images and descriptions. No screenshot evidence is fabricated.
